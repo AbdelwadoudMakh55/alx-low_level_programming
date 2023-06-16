@@ -10,7 +10,15 @@ int main(void)
 	int i = 0;
 	int n = 48;
 
-	while (i < 16)
+	while (i < 10)
+	{
+		putchar((char)n);
+		i++;
+		n++;
+	}
+	i = 0;
+	n = 97;
+	while (i < 6)
 	{
 		putchar((char)n);
 		i++;
