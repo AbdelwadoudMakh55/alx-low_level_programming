@@ -12,27 +12,18 @@ int main(void)
         int n = 48;
 
         while (i < 9)
-        {		
+        {	
+		j = i + 1;
 		while (j < 10)
 		{
-			if (j <= i)
-			{
-				j = i + 1;            
-				putchar((char)n+i);
-				putchar((char)n+j);
-				j++; 
-			}
-			else 
-			{
-				putchar((char)n+i);
-				putchar((char)n+j);
-				j++ ;
-			}
+			putchar((char)n+i);
+			putchar((char)n+j);
+			j++; 
 			if (n+i != 56)
 			{
 				putchar(',');
 				putchar(' ');
-		        }
+			}
 		}
 		j = 0;
         	n = 48;
