@@ -13,7 +13,7 @@ int main(void)
 
 	while (i < 26)
 	{
-		putchar(char(n));
+		putchar((char)n);
 		n++;
 		i++;
 	}
