@@ -21,9 +21,8 @@ int main(void)
         	putchar(' ');
         	}
         	j++;
-    		}
+    	}
     		j = 0;
     		i++;
-    	}
         return (0);
 }
