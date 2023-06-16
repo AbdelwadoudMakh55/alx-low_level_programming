@@ -18,8 +18,8 @@ int main(void)
 			if (j <= i)
 			{
 				j = i + 1;            
-				putchar((char)n+i)
-				putchar((char)n+j)
+				putchar((char)n+i);
+				putchar((char)n+j);
 				j++; 
 			}
 			else 
