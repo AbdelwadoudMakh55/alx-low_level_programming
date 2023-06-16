@@ -16,8 +16,8 @@ int main(void)
 		j = i + 1;
 		while (j < 10)
 		{
-			putchar((char)n+i);
-			putchar((char)n+j);
+			putchar((char)n + i);
+			putchar((char)n + j);
 			j++;
 			if (n + i != 56)
 			{
@@ -29,6 +29,7 @@ int main(void)
 		n = 48;
 		i++;
 	}
+	putchar('\n');
 	return (0);
 }
 			
