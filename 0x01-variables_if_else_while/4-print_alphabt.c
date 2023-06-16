@@ -9,12 +9,15 @@ int main(void)
 {
 	int i = 0;
 	int n = 97;
-	
-	while ((i < 26) && (n != 101) && (n != 113))
+
+	while (i < 26)
 	{
+		if ((n != 101) && (n != 113))
+		{	
 		putchar((char)n);
 		n++;
 		i++;
+		}
 	}
 	putchar('\n');
 	return (0);
