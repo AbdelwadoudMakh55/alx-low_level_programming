@@ -10,7 +10,7 @@ int main(void)
 	int i = 0;
 	int j = 0;
 	int n = 48;
-	
+
 	while (i < 9)
 	{
 		j = i + 1;
@@ -31,5 +31,4 @@ int main(void)
 	}
 	putchar('\n');
 	return (0);
-}
-			
+}			
