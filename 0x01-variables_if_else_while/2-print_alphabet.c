@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	int i=0;
+	int i = 0;
 
-	int n=97;
+	int n = 97;
 
 	while (i < 26)
 	{
@@ -17,5 +17,6 @@ int main(void)
 		n++;
 		i++;
 	}
+	putchar('\n');
 	return (0);
 }
