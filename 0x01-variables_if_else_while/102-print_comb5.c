@@ -15,7 +15,6 @@ int main(void)
 
         while (i < 10)
         {
-                //j = i + 1;
                 while (j < 9)
                 {
                 	k = i;
