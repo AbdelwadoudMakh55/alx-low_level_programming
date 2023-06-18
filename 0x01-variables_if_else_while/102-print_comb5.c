@@ -29,9 +29,9 @@ int main(void)
 			putchar(' ');
 			putchar((char)n + j / 10);
 			putchar((char)n + j % 10);
-			y++;
+			j++;
 		}
-		x++;
+		i++;
 	}
 	putchar('\n');
 	return (0);
