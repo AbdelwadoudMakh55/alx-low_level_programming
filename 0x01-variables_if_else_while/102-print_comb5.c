@@ -7,43 +7,32 @@
  */
 int main(void)
 {
-        int i = 0;
-        int j = 0; 
-        int k = 0;
-        int l = 0;
-        int n = 48;
+	int i = 0;
+	int j = 0;
+	int n = 48;
+	int track_last_comb = 1;
 
-        while (i < 10)
-        {
-                while (j < 9)
-                {
-                	k = i;
-                	while (k < 10)
-                	{
-                		l = j + 1;
-                		while (l < 10)
-                		{
-                        	putchar((char)n + i);
-                        	putchar((char)n + j);
-                        	putchar(' ');
-                        	putchar((char)n + k);
-                        	putchar((char)n + l);
-                        	l++;
-                        	if (!(i == 9 && j == 8 && k == 9 && l == 9))
-                        	{
-                            	putchar(',');
-                            	putchar(' ');
-                        	}
-                        }
-                    	l = 0;
-                    	k++;
-                	}
-                	k = 0;
-                	j++;
-            	}
-            	j = 0 ;
-		i++;
+	while (i < 100)
+	{
+		j = i + 1;
+		while (j < 100)
+		{
+			if (!track_last_comb)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			else
+				track_last_comb = 0;
+			putchar((char)n + i / 10);
+			putchar((char)n + i % 10);
+			putchar(' ');
+			putchar((char)n + j / 10);
+			putchar((char)n + j % 10);
+			y++;
+		}
+		x++;
 	}
-		putchar('\n');
-		return (0);
+	putchar('\n');
+	return (0);
 }
