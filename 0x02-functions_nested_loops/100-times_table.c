@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * print_times_table - Entry point
  * @n : integer
@@ -21,27 +22,21 @@ void print_times_table(int n)
 			{
 				if (!track_last_num)
 				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
+					printf(",   ");
 				}
 				else
 					track_last_num = 0;
-				_putchar((char)48 + i * j);
+				printf("%d", i * j);
 			}
 			else
 			{
 				if (!track_last_num)
 				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
+					putchar(",  ");
 				}
 				else
 					track_last_num = 0;
-				_putchar((char)48 + i * j / 10);
-				_putchar((char)48 + i * j % 10);
+				printf("%d", i * j);
 			}
 		}
 		track_last_num = 1;
