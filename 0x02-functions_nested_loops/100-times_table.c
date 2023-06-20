@@ -18,11 +18,22 @@ void print_times_table(int n)
 	{
 		for (j = 0; j <= n; j++)
 		{
-			if (!track_last_num)
-				printf(",   ");
+			if (i * j < 10)
+			{
+				if (!track_last_num)
+					printf(",   ");
+				else
+					track_last_num = 0;
+				printf("%d", i * j);
+			}
 			else
-				track_last_num = 0;
-			printf("%d", i * j);
+			{
+				if (!track_last_num)
+					printf(",  ");
+				else
+					track_last_num = 0;
+				print("%d", i * j);
+			}
 		}
 		track_last_num = 1;
 		j = 0;
