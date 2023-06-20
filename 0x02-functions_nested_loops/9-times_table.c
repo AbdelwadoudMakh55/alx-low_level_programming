@@ -1,6 +1,7 @@
 #include "main.h"
-/* 
-   * times_table - Entry point
+/*
+ * * times_table - Entry point
+   *
    * Return: Always void (Success)
  */
 void times_table(void)
