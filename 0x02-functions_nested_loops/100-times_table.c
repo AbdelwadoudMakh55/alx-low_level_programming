@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib>
 /**
  * print_times_table - Entry point
  * @n : integer
@@ -10,6 +11,8 @@ void print_times_table(int n)
 	int j;
 	int track_last_num = 1;
 
+	if (n < 0 || n >= 15)
+		exit(0);
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
@@ -40,13 +43,8 @@ void print_times_table(int n)
 				_putchar((char)48 + i * j % 10);
 			}
 		}
-		track_last_num = 0;
+		track_last_num = 1;
 		j = 0;
 		_putchar('\n');
 	}
 }
-
-
-				
-
-		
