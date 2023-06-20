@@ -32,7 +32,7 @@ void print_times_table(int n)
 					printf(",  ");
 				else
 					track_last_num = 0;
-				print("%d", i * j);
+				printf("%d", i * j);
 			}
 		}
 		track_last_num = 1;
