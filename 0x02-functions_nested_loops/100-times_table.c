@@ -24,6 +24,7 @@ void print_times_table(int n)
 					_putchar(',');
 					_putchar(' ');
 					_putchar(' ');
+					_putchar(' ');
 				}
 				else
 					track_last_num = 0;
@@ -34,6 +35,7 @@ void print_times_table(int n)
 				if (!track_last_num)
 				{
 					_putchar(',');
+					_putchar(' ');
 					_putchar(' ');
 				}
 				else
