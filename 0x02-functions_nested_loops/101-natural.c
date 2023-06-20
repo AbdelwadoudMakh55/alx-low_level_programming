@@ -5,7 +5,7 @@
  * 
  * Return: Always integer (Success)
  */
-void _natural(void)
+int _natural(void)
 {
 	int i;
 	int sum = 0;
@@ -15,6 +15,11 @@ void _natural(void)
 		if (i % 3 == 0 || i % 5 == 0)
 			sum += i;
 	}
-	printf("%d", sum);
+	return (sum);
+}
+int main(void)
+{
+	_natural();
 	putchar('\n');
+	return (0);
 }
