@@ -16,4 +16,5 @@ int natural(void)
 			sum += i;
 	}
 	putchar('\n');
+	return (sum);
 }
