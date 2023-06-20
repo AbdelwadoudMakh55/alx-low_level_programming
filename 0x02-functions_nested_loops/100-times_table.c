@@ -28,5 +28,4 @@ void print_times_table(int n)
 		j = 0;
 		putchar('\n');
 	}
-	putchar('\n');
 }
