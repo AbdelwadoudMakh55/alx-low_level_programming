@@ -18,29 +18,15 @@ void print_times_table(int n)
 	{
 		for (j = 0; j <= n; j++)
 		{
-			if (48 + i * j <= 57 && 48 + i * j >= 48)
-			{
-				if (!track_last_num)
-				{
-					printf(",   ");
-				}
-				else
-					track_last_num = 0;
-				printf("%d", i * j);
-			}
+			if (!track_last_num)
+				printf(",   ");
 			else
-			{
-				if (!track_last_num)
-				{
-					printf(",  ");
-				}
-				else
-					track_last_num = 0;
-				printf("%d", i * j);
-			}
+				track_last_num = 0;
+			printf("%d", i * j);
 		}
 		track_last_num = 1;
 		j = 0;
-		_putchar('\n');
+		putchar('\n');
 	}
+	putchar('\n');
 }
