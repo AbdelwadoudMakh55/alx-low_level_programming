@@ -1,11 +1,11 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 /**
  * natural - Entry point
  * 
  * Return: Always integer (Success)
  */
-int natural(void)
+void _natural(void)
 {
 	int i;
 	int sum = 0;
@@ -15,6 +15,6 @@ int natural(void)
 		if (i % 3 == 0 || i % 5 == 0)
 			sum += i;
 	}
+	printf("%d", sum);
 	putchar('\n');
-	return (sum);
 }
