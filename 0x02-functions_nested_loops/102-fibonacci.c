@@ -23,7 +23,7 @@ int main(void)
 {
 	int i;
 
-	for (i = 1; i <= 50; i++)
+	for (i = 2; i <= 51; i++)
 		printf("%d", fibonacci(i));
 	putchar('\n');
 	return (0);
