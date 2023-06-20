@@ -32,7 +32,7 @@ void print_times_table(int n)
 			{
 				if (!track_last_num)
 				{
-					putchar(",  ");
+					printf(",  ");
 				}
 				else
 					track_last_num = 0;
