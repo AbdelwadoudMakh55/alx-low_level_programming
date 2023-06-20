@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * _natural - Entry point
- * 
+ *
  * Return: Always integer (Success)
  */
 int _natural(void)
@@ -25,7 +25,6 @@ int _natural(void)
 int main(void)
 {
 	printf("%d", _natural());
-	putchar('\n');
 	putchar('\n');
 	return (0);
 }
