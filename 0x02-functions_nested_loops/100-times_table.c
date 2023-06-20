@@ -26,7 +26,7 @@ void print_times_table(int n)
 					track_last_num = 0;
 				printf("%d", i * j);
 			}
-			if (i * j < 100)
+			if (i * j < 100 && i * j >= 10)
 			{
 				if (!track_last_num)
 					printf(",  ");
@@ -34,7 +34,7 @@ void print_times_table(int n)
 					track_last_num = 0;
 				printf("%d", i * j);
 			}
-			else
+			if (i * j >= 100)
 			{
 				if (!track_last_num)
 					printf(", ");
