@@ -26,10 +26,18 @@ void print_times_table(int n)
 					track_last_num = 0;
 				printf("%d", i * j);
 			}
-			else
+			if (i * j < 100)
 			{
 				if (!track_last_num)
 					printf(",  ");
+				else
+					track_last_num = 0;
+				printf("%d", i * j);
+			}
+			else
+			{
+				if (!track_last_num)
+					printf(", ");
 				else
 					track_last_num = 0;
 				printf("%d", i * j);
