@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * natural - Entry point
+ * _natural - Entry point
  * 
  * Return: Always integer (Success)
  */
@@ -17,9 +17,15 @@ int _natural(void)
 	}
 	return (sum);
 }
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	_natural();
+	printf("%d", _natural());
+	putchar('\n');
 	putchar('\n');
 	return (0);
 }
