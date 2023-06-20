@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * add - Entry point
- * @n, @m : 2 integers
+ * @n : integer
+ * @m : integer
  * Return: Always an int (Success)
  */
 int add(int n, int m)
