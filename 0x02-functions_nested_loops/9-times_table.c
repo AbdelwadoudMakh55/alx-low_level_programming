@@ -21,7 +21,7 @@ void times_table(void)
 				}
 				else
 					track_last_num = 0;
-				_putchar((char)n + i * j);
+				_putchar((char)48 + i * j);
 			}
 			else
 			{
