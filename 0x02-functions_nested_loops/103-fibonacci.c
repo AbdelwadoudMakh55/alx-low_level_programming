@@ -10,22 +10,18 @@ void fibonacci_even(void)
 	unsigned long n = 0;
 	unsigned long m = 1;
 	unsigned long fib;
+	unsigned long sum = 0;
 	int track_last_num = 1;
 
 	while (fib < 4000000)
 	{
 		fib = n + m;
-		if (fib % 2 ==0)
-		{
-			if (!track_last_num)
-				printf(", ");
-			else
-				track_last_num = 0;
-			printf("%lu", fib);
-		}
+		if (fib % 2 == 0)
+			sum += fib;
 		n = m;
 		m = fib;
 	}
+	printf("%d", sum);
 }
 /**
  * main - Entry point
