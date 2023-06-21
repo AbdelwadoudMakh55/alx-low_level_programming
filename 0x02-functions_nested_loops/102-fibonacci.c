@@ -7,10 +7,10 @@
  */
 void fibonacci(void)
 {
-	long long n = 0;
-	long long m = 1;
+	unsigned long n = 0;
+	unsigned long m = 1;
 	int i;
-	long long fib = 0;
+	unsigned long fib;
 	int track_last_num = 1;
 
 	for (i = 0; i < 50; i++)
@@ -22,7 +22,7 @@ void fibonacci(void)
 		else
 			track_last_num = 0;
 		fib = n + m;
-		printf("%lld", fib);
+		printf("%lu", fib);
 		n = m;
 		m = fib;
 	}
