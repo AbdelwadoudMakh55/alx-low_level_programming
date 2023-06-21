@@ -21,7 +21,7 @@ void fibonacci_even(void)
 		n = m;
 		m = fib;
 	}
-	printf("%d", sum);
+	printf("%lu", sum);
 }
 /**
  * main - Entry point
