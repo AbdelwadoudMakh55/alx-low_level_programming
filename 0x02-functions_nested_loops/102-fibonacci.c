@@ -2,15 +2,15 @@
 #include "main.h"
 /**
  * fibonacci - Entry point
- * @n : integer
+ *
  * Return: Always int (Success)
  */
 void fibonacci(void)
 {
-	int n = 0;
-	int m = 1;
+	float n = 0;
+	float m = 1;
 	int i;
-	int fib = 0;
+	float fib = 0;
 	int track_last_num = 1;
 
 	for (i = 0; i < 50; i++)
@@ -22,7 +22,7 @@ void fibonacci(void)
 		else
 			track_last_num = 0;
 		fib = n + m;
-		printf("%d", fib);
+		printf("%.0f", fib);
 		n = m;
 		m = fib;
 	}
