@@ -11,7 +11,6 @@ void fibonacci_even(void)
 	unsigned long m = 1;
 	unsigned long fib;
 	unsigned long sum = 0;
-	int track_last_num = 1;
 
 	while (fib < 4000000)
 	{
