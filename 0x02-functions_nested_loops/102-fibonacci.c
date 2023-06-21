@@ -5,14 +5,27 @@
  * @n : integer
  * Return: Always int (Success)
  */
-int fibonacci(int n)
+void fibonacci(void)
 {
-	if (n == 0)
-		return (0);
-	if (n == 1)
-		return (1);
-	else
-		return (fibonacci(n - 1) + fibonacci(n - 2));
+	int n = 0;
+	int m = 1;
+	int i;
+	int fib = 0;
+	int track_last_num = 1;
+
+	for (i = 0; i < 50; i++)
+	{
+		if (!track_last_num)
+		{
+			printf(", ");
+		}
+		else
+			track_last_num = 0;
+		fib = n + m;
+		printf("%d", fib);
+		n = m;
+		m = fib;
+	}
 }
 /**
  * main - Entry point
@@ -21,10 +34,7 @@ int fibonacci(int n)
  */
 int main(void)
 {
-	int i;
-
-	for (i = 2; i <= 51; i++)
-		printf("%d", fibonacci(i));
+	fibonacci();
 	putchar('\n');
 	return (0);
 }
