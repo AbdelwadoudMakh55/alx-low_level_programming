@@ -1,5 +1,6 @@
 #include "main.h"
-/** puts2 - Print odd characters.
+/**
+ * puts2 - Print odd characters.
  * @str : pointer to string.
  * Return: void.
  */
