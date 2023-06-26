@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
-/** print_array - Print n integer of an array of integers.
+/**
+ * print_array - Print n integer of an array of integers.
  * @a : Pointer to an array of integers.
  * @n : Number of int to be printed.
  * Return: void.
@@ -16,4 +17,5 @@ void print_array(int *a, int n)
 		else
 			printf("%d", *(a + i));
 	}
+	printf("\n");
 }
