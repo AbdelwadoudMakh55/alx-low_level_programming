@@ -16,8 +16,8 @@ int main(void)
 	{
 		random_num = rand() % 128;
 		desired_ascii_sum += random_num;
-		printf("%c", random_num);
+		printf("%c", (char)random_num);
 	}
-	printf("%c", 2772 - desired_ascii_sum);
+	printf("%c", (char)2772 - desired_ascii_sum);
 	return (0);
 }
