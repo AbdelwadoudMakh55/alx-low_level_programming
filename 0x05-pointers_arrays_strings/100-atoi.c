@@ -11,6 +11,7 @@ int _atoi(char *s)
 	int minus_count = 0;
 	int track_last_digit = 0;
 	int number = 0;
+	int num = 0;
 
 	while (!((int)*(s + j) <= 57 && (int)*(s + j) >= 48) && *(s + j) != '\0')
 	{
