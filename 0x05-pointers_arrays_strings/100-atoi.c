@@ -22,7 +22,10 @@ int _atoi(char *s)
 	{
 		if ((int)*(s + k) <= 57 && (int)*(s + k) >= 48)
 		{
-			number = number * 10 + (int)*(s + k) - 48;
+			num = (int)*(s + k) - 48;
+			if (minus_count % 2 != 0)
+				num = -1 * ((int)*(s + k) - 48);
+			number = number * 10 + num;
 			if (track_last_digit != 1)
 				track_last_digit = 1;
 		}
