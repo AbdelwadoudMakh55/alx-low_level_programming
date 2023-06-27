@@ -34,7 +34,5 @@ int _atoi(char *s)
 			break;
 		k++;
 	}
-	if (minus_count % 2 != 0)
-		return (-number);
 	return (number);
 }
