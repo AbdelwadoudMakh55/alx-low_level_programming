@@ -1,4 +1,5 @@
 #include "main.h"
+#include <math.h>
 /**
  * print_number - Print an integer.
  * @n : integer.
@@ -7,6 +8,8 @@
 void print_number(int n)
 {
 	int compteur = 0;
+	int power_10 = 1;
+	int i;
 	int digit = 0;
 	int copy_n = n;
 
@@ -22,11 +25,13 @@ void print_number(int n)
 		copy_n = copy_n / 10;
 		compteur += 1;
 	}
+	for (i = 0; i < compteur - 1; i++)
+		power_10 *= 10;
 	while (n != 0)
 	{
-		digit = 48 + n / (int)pow(10, compteur - 1);
+		digit = 48 + n / power_10;
 		_putchar(digit);
-		n = n % (int)pow(10, compteur - 1);
-		compteur -= 1;
+		n = n % power_10;
+		power_10 /= 10;
 	}
 }
