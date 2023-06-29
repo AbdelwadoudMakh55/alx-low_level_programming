@@ -17,8 +17,6 @@ char *cap_string(char *str)
 		|| *(str + i) == '\t')
 		&& (*(str + i + 1) <= 122 && (int)*(str + i + 1) >= 97))
 			*(str + i + 1) -= 32;
-		if (*(str + i) == '\t')
-			*(str + i) = ' ';
 	}
 	return (str);
 }
