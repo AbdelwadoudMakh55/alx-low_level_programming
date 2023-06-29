@@ -13,7 +13,7 @@ int _strlen(char *s)
 	{
 		len += 1;
 		i++;
-	}											
+	}
 	return (len);
 }
 /**
@@ -26,7 +26,7 @@ char *_strcat(char *dest, char *src)
 {
 	int len = _strlen(dest);
 	int i;
-	
+
 	for (i = 0; *(src + i) != '\0'; i++)
 		*(dest + len + i) = *(src + i);
 	*(dest + _strlen(dest)) = '\0';
