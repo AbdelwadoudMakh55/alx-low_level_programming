@@ -14,7 +14,7 @@ void fibonacci(void)
 	unsigned long n1, n2, m1, m2;
 	unsigned long ten_power = 1000000000;
 
-	printf("%lu", m);
+	printf("%lu, ", m);
 	for (i = 0; i < 90; i++)
 	{
 		if (!track_last_num)
@@ -38,6 +38,7 @@ void fibonacci(void)
 		else
 			track_last_num = 0;
 		printf("%lu", n1 + n2 / ten_power);
+		printf("%lu", n2 % ten_power);
 		n1 += m1;
 		n2 += m2;
 		m1 = n1 - m1;
