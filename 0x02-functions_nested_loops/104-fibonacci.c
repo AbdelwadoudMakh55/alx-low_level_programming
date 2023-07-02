@@ -11,7 +11,7 @@ void fibonacci(void)
 	unsigned long m = 1;
 	int i;
 	int track_last_num = 1;
-	unsigned long n1, n2, m2, m2;
+	unsigned long n1, n2, m1, m2;
 	unsigned long ten_power = 1000000000;
 
 	printf("%lu", m);
