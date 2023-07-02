@@ -7,13 +7,15 @@
  */
 void fibonacci(void)
 {
-	unsigned long n = 0;
+	unsigned long n = 2;
 	unsigned long m = 1;
 	int i;
-	unsigned long fib;
 	int track_last_num = 1;
+	unsigned long n1, n2, m2, m2;
+	unsigned long ten_power = 1000000000;
 
-	for (i = 0; i < 98; i++)
+	printf("%lu", m);
+	for (i = 0; i < 90; i++)
 	{
 		if (!track_last_num)
 		{
@@ -21,10 +23,25 @@ void fibonacci(void)
 		}
 		else
 			track_last_num = 0;
-		fib = n + m;
-		printf("%lu", fib);
-		n = m;
-		m = fib;
+		printf("%lu", n);
+		n += m;
+		m = n - m;
+	}
+	n1 = n / ten_power;
+	n2 = n % ten_power;
+	m1 = m / ten_power;
+	m2 = m % ten_power;
+	for (i = 0; i < 7; i++)
+	{
+		if (!track_last_num)
+			printf(", ");
+		else
+			track_last_num = 0;
+		printf("%lu", n1 + n2 / ten_power);
+		n1 += m1;
+		n2 += m2;
+		m1 = n1 - m1;
+		m2 = n2 - m2;
 	}
 }
 /**
