@@ -20,7 +20,8 @@ int _strlen(char *s)
  * _strstr - Locate a substring.
  * @haystack : Pointer to string.
  * @needle : Pointer to string.
- * Return: Pointer to he beginning of the located substring, or NULL if the substring is not found.
+ * Return: Pointer to he beginning of the located substring,
+ * or NULL if the substring is not found.
  */
 char *_strstr(char *haystack, char *needle)
 {
