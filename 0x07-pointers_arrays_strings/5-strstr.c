@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _strlen - return the length of a string.
  * @s : pointer to a string.
@@ -26,11 +25,11 @@ int _strlen(char *s)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i = 0;
+	int i;
 	int j = 0;
 	int count = 0;
 
-	while (*(needle + i) != '\0')
+	for (i = 0; *(needle + i) != '\0'; i++)
 	{
 		while (*(haystack + j) != '\0')
 		{
@@ -41,7 +40,6 @@ char *_strstr(char *haystack, char *needle)
 			}
 			j++;
 		}
-		i++;
 	}
 	if (count == _strlen(needle))
 		return (haystack + j - count + 1);
