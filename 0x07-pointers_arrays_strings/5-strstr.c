@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _strlen - return the length of a string.
  * @s : pointer to a string.
@@ -31,7 +32,7 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*(needle + i) != '\0')
 	{
-		while (*(haystack + j) >= '\0')
+		while (*(haystack + j) != '\0')
 		{
 			if (*(needle + i) == *(haystack + j))
 			{
