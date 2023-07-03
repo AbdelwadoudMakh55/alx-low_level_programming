@@ -31,7 +31,7 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*(needle + i) != '\0')
 	{
-		while (*(haystack + j) != '\0')
+		while (*(haystack + j) >= '\0')
 		{
 			if (*(needle + i) == *(haystack + j))
 			{
