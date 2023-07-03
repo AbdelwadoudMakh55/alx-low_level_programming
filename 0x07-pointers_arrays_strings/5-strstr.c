@@ -1,22 +1,5 @@
 #include "main.h"
 /**
- * _strlen - return the length of a string.
- * @s : pointer to a string.
- * Return: len; length of string str.
- */
-int _strlen(char *s)
-{
-	int i = 0;
-	int len = 0;
-
-	while (*(s + i) != '\0')
-	{
-		len += 1;
-		i++;
-	}
-	return (len);
-}
-/**
  * _strstr - Locate a substring.
  * @haystack : Pointer to string.
  * @needle : Pointer to string.
@@ -27,21 +10,15 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i;
 	int j = 0;
-	int count = 0;
 
-	for (i = 0; *(needle + i) != '\0'; i++)
+	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
-		while (*(haystack + j) != '\0')
+		while (*(haystack + i) == *(needle + j) && *(needle + j) != '\0')
 		{
-			if (*(needle + i) == *(haystack + j))
-			{
-				count += 1;
-				break;
-			}
 			j++;
 		}
+		if (*(needle + j) == '\0')
+			return (haystack + i - j + 1);
 	}
-	if (count == _strlen(needle))
-		return (haystack + j - count + 1);
 	return (0);
 }
