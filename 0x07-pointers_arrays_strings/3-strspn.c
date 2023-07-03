@@ -11,7 +11,8 @@ unsigned int _strspn(char *s, char *accept)
 	int j;
 	int count = 0;
 
-	while (*(s + i) <= 122 && *(s + i) >= 97)
+	while ((*(s + i) <= 122 && *(s + i) >= 97)
+	|| (*(s + i) <= 90 && *(s + i) >= 65))
 	{
 		for (j = 0; *(accept + j) != '\0'; j++)
 		{
