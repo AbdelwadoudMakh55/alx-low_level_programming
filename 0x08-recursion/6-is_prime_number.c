@@ -7,7 +7,7 @@
  */
 int search_prime(int n, int num)
 {
-	if (n == 1 || n == -1)
+	if (n == 1 || n < 0)
 		return (0);
 	if (num + 1 < n)
 	{
