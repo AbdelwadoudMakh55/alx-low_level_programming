@@ -10,7 +10,7 @@ int square_root_research(int n, int power)
 	if (power * power == n)
 		return (power);
 	if (power * power < n)
-		return (square_root_research(int n, power + 1));
+		return (square_root_research(n, power + 1));
 	else
 		return (-1);
 }
