@@ -30,7 +30,6 @@ int search_palindrome(char *s, int len)
 		s++;
 		len--;
 		return (search_palindrome(s, len - 1));
-		}
 	}
 	return (1);
 }
