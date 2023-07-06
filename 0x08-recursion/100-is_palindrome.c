@@ -27,11 +27,9 @@ int search_palindrome(char *s, int len)
 	{
 		if (*s != *(s + len - 1))
 			return (0);
-		else
-		{
-			s++;
-			len--;
-			return (search_palindrome(s, len - 1));
+		s++;
+		len--;
+		return (search_palindrome(s, len - 1));
 		}
 	}
 	return (1);
