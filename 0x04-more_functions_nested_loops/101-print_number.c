@@ -7,7 +7,7 @@
 void print_number(int n)
 {
 	int compteur = 0;
-	int power_10 = 1;
+	unsigned int power_10 = 1;
 	int i;
 	int digit = 0;
 	unsigned int copy_n = n;
@@ -30,9 +30,19 @@ void print_number(int n)
 		power_10 *= 10;
 	while (num != 0)
 	{
-		digit = 48 + num / power_10;
-		_putchar(digit);
-		num = num % power_10;
-		power_10 /= 10;
+		if (num == power_10)
+		{
+			_putchar(49);
+			for (i = 1; i < compteur; i++)
+				_putchar(48);
+			num = 0;
+		}
+		else
+		{
+			digit = 48 + num / power_10;
+			_putchar(digit);
+			num = num % power_10;
+			power_10 /= 10;
+		}
 	}
 }
