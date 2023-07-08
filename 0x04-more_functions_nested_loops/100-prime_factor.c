@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	unsigned int n = 612852475143;
+	long int n = 612852475143;
 	unsigned int i;
 	unsigned int max_fact = 0;
 
@@ -18,6 +18,6 @@ int main(void)
 			n = n / i;
 		}
 	}
-	printf("%lu", max_fact);
+	printf("%u", max_fact);
 	return (0);
 }
