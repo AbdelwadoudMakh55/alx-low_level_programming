@@ -1,7 +1,7 @@
 #include "main.h"
 int main(void)
 {
-	    print_number(-2147483648);
+	    print_number(2147483647);
 	        _putchar('\n');
 		    print_number(402);
 		        _putchar('\n');

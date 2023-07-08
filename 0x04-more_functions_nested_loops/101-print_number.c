@@ -1,5 +1,4 @@
 #include "main.h"
-#include <math.h>
 /**
  * print_number - Print an integer.
  * @n : integer.
@@ -11,15 +10,16 @@ void print_number(int n)
 	int power_10 = 1;
 	int i;
 	int digit = 0;
-	int copy_n = n;
+	unsigned int copy_n = n;
 	unsigned int num = n;
 
 	if (n == 0)
 		_putchar(48);
 	if (n < 0)
 	{
-		num = -n;
 		_putchar(45);
+		num = -n;
+		copy_n = -n;
 	}
 	while (copy_n != 0)
 	{
