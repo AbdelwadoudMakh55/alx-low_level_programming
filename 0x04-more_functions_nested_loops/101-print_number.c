@@ -12,13 +12,14 @@ void print_number(int n)
 	int i;
 	int digit = 0;
 	int copy_n = n;
+	unsigned int num = n;
 
 	if (n == 0)
 		_putchar(48);
 	if (n < 0)
 	{
+		num = -n;
 		_putchar(45);
-		n = -n;
 	}
 	while (copy_n != 0)
 	{
@@ -27,11 +28,11 @@ void print_number(int n)
 	}
 	for (i = 0; i < compteur - 1; i++)
 		power_10 *= 10;
-	while (n != 0)
+	while (num != 0)
 	{
-		digit = 48 + n / power_10;
+		digit = 48 + num / power_10;
 		_putchar(digit);
-		n = n % power_10;
+		num = num % power_10;
 		power_10 /= 10;
 	}
 }
