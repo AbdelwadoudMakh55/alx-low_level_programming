@@ -18,6 +18,6 @@ int main(void)
 			n = n / i;
 		}
 	}
-	printf("%u", max_fact);
+	printf("%u\n", max_fact);
 	return (0);
 }
