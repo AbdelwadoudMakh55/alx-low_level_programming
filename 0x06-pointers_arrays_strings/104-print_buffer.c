@@ -25,8 +25,16 @@ void print_buffer(char *b, int size)
 		printf(" ");
 		if (j != i + 10)
 		{
-			for (k = 0; k < 10 - (size - i); k++)
-				printf(" ");
+			if (size - i > 5)
+			{
+				for (k = 0; k < 10; k++)
+					printf(" ");
+			}
+			else
+			{
+				for (k = 0; k < 10 - (size - i); k++)
+					printf(" ");
+			}
 		}
 		for (j = i; (j < i + 10 && j < size); j++)
 		{
