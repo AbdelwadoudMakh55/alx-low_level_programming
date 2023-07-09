@@ -14,7 +14,7 @@ void print_buffer(char *b, int size)
 		printf("\n");
 	for (i = 0; i < size; i += 10)
 	{
-		printf("%p:", &b[i]);
+		printf("%.8x:", b[i]);
 		for (j = i; (j < i + 10 && j < size); j += 2)
 			printf(" %.2x%.2x", b[j], b[j + 1]);
 		if (j != i + 10)
