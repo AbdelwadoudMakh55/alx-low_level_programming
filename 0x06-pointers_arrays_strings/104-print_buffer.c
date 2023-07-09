@@ -23,8 +23,11 @@ void print_buffer(char *b, int size)
 				printf(" %.2x%.2x", b[j], b[j + 1]);
 		}
 		printf(" ");
-		for (k = 0; k < 10 - (size - i); k++)
-			printf(" ");
+		if (j != i + 10)
+		{
+			for (k = 0; k < 10 - (size - i); k++)
+				printf(" ");
+		}
 		for (j = i; (j < i + 10 && j < size); j++)
 		{
 			if (b[j] <= 126 && b[j] >= 32)
