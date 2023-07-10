@@ -27,8 +27,10 @@ char *_strdup(char *str)
 	int i;
 	char *copy_str;
 
+	if (str == NULL)
+		return (0);
 	copy_str = (char *)malloc(_strlen(str) + 1);
-	if (copy_str == NULL || str == NULL)
+	if (copy_str == NULL)
 		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 		copy_str[i] = str[i];
