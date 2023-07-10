@@ -28,37 +28,17 @@ char *str_concat(char *s1, char *s2)
 	int i, j;
 	char *conca;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		conca = (char *)malloc(1);
-		*conca = '\0';
-		return (conca);
-	}
 	if (s1 == NULL)
-	{
-		conca = (char *)malloc(_strlen(s2) + 1);
-		for (j = 0; s2[j] != '\0'; i++)
-			conca[j] = s2[j];
-		conca[j] = '\0';
-		return (conca);
-	}
+		s1 = "\0";
 	if (s2 == NULL)
-	{
-		conca = (char *)malloc(_strlen(s1) + 1);
-		for (i = 0; s1[i] != '\0'; i++)
-			conca[i] = s1[i];
-		conca[i] = '\0';
-		return (conca);
-	}
-	else
-	{
-		conca = (char *)malloc(_strlen(s2) + _strlen(s1) + 1);
-		if (conca == NULL)
-			return (0);
-		for (i = 0; s1[i] != '\0'; i++)
-			conca[i] = s1[i];
-		for (j = 0; s2[j] != '\0'; j++)
-			conca[i + j] = s2[j];
-	}
+		s2 = "\0";
+	conca = (char *)malloc(_strlen(s1) + _strlen(s2) + 1);
+	if (conca == NULL)
+		return (0);
+	for (i = 0; s1[i] != '\0'; i++)
+		conca[i] = s1[i];
+	for (j = 0; s2[j] != '\0'; j++)
+		conca[i + j] = s2[j];
+	conca[i + j] = '\0';
 	return (conca);
 }
