@@ -28,17 +28,44 @@ char *str_concat(char *s1, char *s2)
 	int i, j;
 	char *conca;
 
+	if (s1 == NULL && s2 == NULL)
+	{
+		conca = (char *)malloc(1);
+		*conca = '\0';
+		return (conca);
+	}
 	if (s1 == NULL)
+	{
 		conca = (char *)malloc(_strlen(s2) + 1);
+		for (j = 0; s2[j] != '\0'; i++)
+			conca[j] = s2[j];
+		return (conca);
+	}
 	if (s2 == NULL)
+	{
 		conca = (char *)malloc(_strlen(s1) + 1);
+		for (i = 0; s1[i] != '\0'; i++)
+			conca[i] = s1[i];
+	}
 	else
+	{
 		conca = (char *)malloc(_strlen(s2) + _strlen(s1) + 1);
-	if (conca == NULL)
-		return (0);
-	for (i = 0; s1[i] != '\0'; i++)
-		conca[i] = s1[i];
-	for (j = 0; s2[j] != '\0'; i++)
-		conca[i] = s2[j];
+		if (conca == NULL)
+			return (0);
+		for (i = 0; s1[i] != '\0'; i++)
+			conca[i] = s1[i];
+		for (j = 0; s2[j] != '\0'; i++)
+			conca[i] = s2[j];
+	}
 	return (conca);
+}
+
+
+
+
+
+
+
+
+
 }
