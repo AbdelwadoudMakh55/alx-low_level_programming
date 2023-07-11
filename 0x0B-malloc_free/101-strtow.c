@@ -87,7 +87,7 @@ char **strtow(char *str)
 	char **arr_word;
 	int i, j, index1 = 0, index2 = 0, *len_words = len_word(str);
 
-	if (str == NULL || _strlen(str) == 0 || _strlen(str) == 1)
+	if (str == NULL || _strlen(str) == 0 || num_words(str) == 0)
 		return (0);
 	arr_word = (char **)malloc((num_words(str) + 1) * sizeof(char *));
 	if (arr_word == NULL)
