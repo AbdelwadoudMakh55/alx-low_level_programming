@@ -59,7 +59,7 @@ int *len_word(char *str)
 	int num_let = 0;
 	int index = 0;
 
-	arr_len = (int *)malloc(sizeof(num_words(str)) * sizeof(int));
+	arr_len = (int *)malloc(num_words(str) * sizeof(int));
 	if (arr_len == NULL)
 		return (0);
 	for (i = 0; str[i] != '\0'; i++)
@@ -72,7 +72,8 @@ int *len_word(char *str)
 			num_let = 0;
 			index++;
 		}
-		arr_len[index] = num_let;
+		else
+			arr_len[index] = num_let;
 	}
 	return (arr_len);
 }
@@ -89,17 +90,21 @@ char **strtow(char *str)
 
 	if (str == NULL || _strlen(str) == 0)
 		return (0);
-	arr_word = (char **)malloc(num_words(str) + 1);
+	arr_word = (char **)malloc((num_words(str) + 1) * sizeof(char *));
 	if (arr_word == NULL)
+	{
+		free(len_words);
 		return (0);
+	}
 	for (i = 0; i < num_words(str); i++)
 	{
-		arr_word[i] = (char *)malloc(len_words[i] + 1);
+		arr_word[i] = (char *)malloc((len_words[i] + 1) * sizeof(char));
 		if (arr_word[i] == NULL)
 		{
 			for (j = 0; j < num_words(str); j++)
 				free(arr_word[j]);
 			free(arr_word);
+			free(len_words);
 			return (0);
 		}
 	}
@@ -123,5 +128,6 @@ char **strtow(char *str)
 		}
 		i++;
 	}
+	free(len_words);
 	return (arr_word);
 }
