@@ -54,24 +54,27 @@ int num_words(char *str)
  */
 int *len_word(char *str)
 {
-	int *array_len;
+	int *arr_len;
 	int i;
 	int num_let = 0;
 	int index = 0;
 
+	arr_len = (int *)malloc(sizeof(num_words(str)) * sizeof(int));
+	if (arr_len == NULL)
+		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] > 32 && str[i] <= 126)
 			num_let += 1;
 		if (str[i] == 32 && num_let != 0)
 		{
-			array_len[index] = num_let;
+			arr_len[index] = num_let;
 			num_let = 0;
 			index++;
 		}
-		array_len[index] = num_let;
+		arr_len[index] = num_let;
 	}
-	return (array_len);
+	return (arr_len);
 }
 /**
  * strtow -  splits a string into words.
