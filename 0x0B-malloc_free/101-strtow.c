@@ -33,10 +33,10 @@ int num_words(char *str)
 	{
 		if (str[i] > 32 && str[i] <= 126)
 			word_len += 1;
-		if (str[i] == 32 && world_len != 0)
+		if (str[i] == 32 && word_len != 0)
 		{
 			num_word += 1;
-			wordl_len = 0;
+			word_len = 0;
 		}
 		if (str[i] == 32)
 			space_count += 1;
@@ -86,15 +86,15 @@ char **strtow(char *str)
 	int *len_words = len_word(str);
 	int i, j;
 
-	if (str == NULL || str == "")
+	if (str == NULL || _strlen(str) == 0)
 		return (0);
-	array_words = (char **)malloc(num_words(str) + 1);
-	if (array_words == NULL)
+	arr_word = (char **)malloc(num_words(str) + 1);
+	if (arr_word == NULL)
 		return (0);
 	for (i = 0; i < num_words(str); i++)
 	{
-		array_words[i] = (char *)malloc(len_words[i] + 1);
-		if (array_words[i] == NULL)
+		arr_words[i] = (char *)malloc(len_words[i] + 1);
+		if (arr_word[i] == NULL)
 		{
 			for (j = 0; j < num_words(str); j++)
 				free(array_words[j]);
@@ -109,18 +109,18 @@ char **strtow(char *str)
 			i++;
 		if (str[i] != ' ')
 		{
-			array_words[index1][index2] = str[i];
+			arr_word[index1][index2] = str[i];
 			index2++;
 		}
 		if (str[i] == ' ' && index2 != 0)
 		{
-			array_words[index1][index2] = '\0';
+			arr_word[index1][index2] = '\0';
 			index1++;
 			index2 = 0
 		}
-		i++
+		i++;
 	}
-	array_words[index1][index2] = '\0';
-	array_words[num_words(str)] = NULL;
-	return (array_words);
+	arr_word[index1][index2] = '\0';
+	arr_word[num_words(str)] = NULL;
+	return (arr_word);
 }
