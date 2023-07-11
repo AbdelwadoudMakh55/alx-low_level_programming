@@ -84,10 +84,8 @@ int *len_word(char *str)
 char **strtow(char *str)
 {
 	char **arr_word;
-	int index1 = 0;
-	int index2 = 0;
+	int i, j, index1 = 0, index2 = 0;
 	int *len_words = len_word(str);
-	int i, j;
 
 	if (str == NULL || _strlen(str) == 0)
 		return (0);
@@ -106,14 +104,16 @@ char **strtow(char *str)
 		}
 	}
 	i = 0;
+	arr_word[num_words(str)] = NULL;
 	while (str[i] != '\0')
 	{
 		while (str[i] == ' ')
 			i++;
-		if (str[i] != ' ')
+		while (index2 < len_words[index1] && str[i] != ' ')
 		{
 			arr_word[index1][index2] = str[i];
 			index2++;
+			i++;
 		}
 		if (str[i] == ' ' && index2 != 0)
 		{
@@ -123,7 +123,5 @@ char **strtow(char *str)
 		}
 		i++;
 	}
-	arr_word[index1][index2] = '\0';
-	arr_word[num_words(str)] = NULL;
 	return (arr_word);
 }
