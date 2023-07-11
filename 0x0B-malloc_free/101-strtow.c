@@ -93,12 +93,12 @@ char **strtow(char *str)
 		return (0);
 	for (i = 0; i < num_words(str); i++)
 	{
-		arr_words[i] = (char *)malloc(len_words[i] + 1);
+		arr_word[i] = (char *)malloc(len_words[i] + 1);
 		if (arr_word[i] == NULL)
 		{
 			for (j = 0; j < num_words(str); j++)
-				free(array_words[j]);
-			free(array_words);
+				free(arr_word[j]);
+			free(arr_word);
 			return (0);
 		}
 	}
@@ -116,7 +116,7 @@ char **strtow(char *str)
 		{
 			arr_word[index1][index2] = '\0';
 			index1++;
-			index2 = 0
+			index2 = 0;
 		}
 		i++;
 	}
