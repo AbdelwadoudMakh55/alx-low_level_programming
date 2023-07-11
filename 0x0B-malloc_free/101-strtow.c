@@ -123,5 +123,6 @@ char **strtow(char *str)
 		}
 		i++;
 	}
+	free(len_words);
 	return (arr_word);
 }
