@@ -33,6 +33,7 @@ void print_all(const char * const format, ...)
 					string = "(nil)";
 				printf("%s%s", separator, string);
 			default:
+				i++;
 				continue;
 		}
 		i++;
