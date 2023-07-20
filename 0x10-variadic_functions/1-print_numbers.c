@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  * print_numbers - Print numbers, followed by a new line.
- * @seperator : the string that seprates the number (Pointer to string).
+ * @separator : the string that seprates the number (Pointer to string).
  * @n : The number of numbers to be printed (const unsigned int).
  * Return: Void.
  */
