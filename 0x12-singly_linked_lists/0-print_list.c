@@ -10,6 +10,8 @@ size_t print_list(const list_t *h)
 	size_t n_nodes = 0;
 	list_t *ptr = (*h).next;
 
+	if (h == NULL)
+		return (0);
 	if ((*h).str == NULL)
 		printf("[0] (nil)\n");
 	else
