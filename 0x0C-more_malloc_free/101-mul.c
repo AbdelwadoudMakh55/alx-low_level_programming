@@ -116,6 +116,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
+	if (argv[1][0] == '0' || argv[2][0] == '0')
+	{
+		printf("0\n");
+		return (0);
+	}
 	len1 = _strlen(argv[1]);
 	len2 = _strlen(argv[2]);
 	num1 = malloc(sizeof(int) * len1);
