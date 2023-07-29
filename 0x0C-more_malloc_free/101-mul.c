@@ -1,101 +1,104 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
- * _puts - prints a string to stdout.
- * @str : pointer to string.
- * Return: void.
+ * _strlen - return the length of a string.
+ * @s : pointer to a string.
+ * Return: len; length of string str.
  */
-void _puts(char *str)
+int _strlen(char *s)
+{
+	int i = 0;
+	int len = 0;
+
+	while (*(s + i) != '\0')
+	{
+		len += 1;
+		i++;
+	}
+	return (len);
+}
+/**
+ * add_zeros - Initial an array with zeros.
+ * @array : Array of integers.
+ * @size : Size of array.
+ * Return: Void.
+ */
+void add_zeros(int *array, int size)
 {
 	int i;
 
-	for (i = 0; *(str + i) != '\0'; i++)
-		_putchar(*(str + i));
-	_putchar('\n');
+	for (i = 0; i < size; i++)
+		array[i] = 0;
 }
 /**
- * _atoi - Convert string to int.
- * @s : pointer to string.
- * Return: integer.
+ * print_array - Print an array of integers.
+ * @array : Array of integers.
+ * @size : Size of array.
+ * Return: Void.
  */
-int _atoi(char *s)
+void print_array(int *array, int size)
 {
-	int j = 0;
-	int k = 0;
-	int minus_count = 0;
-	int track_last_digit = 0;
-	int number = 0;
-	int num = 0;
+	int i;
 
-	while (!((int)*(s + j) <= 57 && (int)*(s + j) >= 48) && *(s + j) != '\0')
+	for (i = size; i >= 0; i--)
 	{
-		if ((int)*(s + j) == 45)
-			minus_count += 1;
-		j++;
-	}
-	while (*(s + k) != '\0')
-	{
-		if ((int)*(s + k) <= 57 && (int)*(s + k) >= 48)
-		{
-			num = (int)*(s + k) - 48;
-			if (minus_count % 2 != 0)
-				num = -1 * ((int)*(s + k) - 48);
-			number = number * 10 + num;
-			if (track_last_digit != 1)
-				track_last_digit = 1;
-		}
-		else if (track_last_digit == 1)
+		if (array[i] > 0 && array[i] < 10)
 			break;
-		k++;
 	}
-		return (number);
+	for (; i >= 0; i--)
+		printf("%d", array[i]);
 }
 /**
- * print_number - Print an integer.
- * @n : integer.
- * Return: void.
+ * check_digits - Check if a string has chars other then digits.
+ * @num : Array of chars.
+ * Return: 1 if num has only digits, 0 if not.
  */
-void print_number(unsigned long int n)
+int check_digits(char *num)
 {
-		int compteur = 0;
-		unsigned long int power_10 = 1;
-		int i;
-		int digit = 0;
-		unsigned long int copy_n = n;
-		unsigned long int num = n;
+	int result = 1;
+	int i;
 
-		if (n == 0)
-			_putchar(48);
-		if (n < 0)
+	for (i = 0; num[i] != '\0'; i++)
+	{
+		if (!(num[i] >= 48 && num[i] <= 57))
 		{
-			_putchar(45);
-			num = -n;
-			copy_n = -n;
+			result = 0;
+			break;
 		}
-		while (copy_n != 0)
-		{
-			copy_n = copy_n / 10;
-			compteur += 1;
-		}
-		for (i = 0; i < compteur - 1; i++)
-			power_10 *= 10;
-		while (num != 0)
-		{
-			if (num == power_10)
-			{
-				_putchar(49);
-				for (i = 1; i < compteur; i++)
-					_putchar(48);
-				num = 0;
-			}
-			else
-			{
-				digit = 48 + num / power_10;
-				_putchar(digit);
-				num = num % power_10;
-				power_10 /= 10;
-			}
-		}
+	}
+	return (result);
+}
+/**
+ * mulriplication - Turn 2 arrays of chars (digits) to array of ints
+ * and multiply them.
+ * @product : Array.
+ * @num1 : Array of ints.
+ * @num2 : Array of ints.
+ * @s_num1 : Array of chars.
+ * @s_num2 : Array of chars.
+ * @len1 : Length of s_num1.
+ * @len2 : Length of s_num2.
+ * Return: Void.
+ */
+void multiplication(int *product, int *num1, int *num2, char *s_num1,
+		char *s_num2, int len1, int len2)
+{
+	int i, j, tmp;
+
+	for (i = 0; i < len1; i++)
+		num1[i] = s_num1[len1 - i - 1] - 48;
+	for (i = 0; i < len2; i++)
+		num2[i] = s_num2[len2 - 1 - i] - 48;
+	for (i = 0; i < len2; i++)
+		for (j = 0; j < len1; j++)
+			product[i + j] += num2[i] * num1[j];
+	for (i = 0; i < len1 + len2; i++)
+	{
+		tmp = product[i] / 10;
+		product[i] = product[i] % 10;
+		product[i + 1] = product[i + 1] + tmp;
+	}
 }
 /**
  * main - Entry point.
@@ -105,30 +108,24 @@ void print_number(unsigned long int n)
  */
 int main(int argc, char *argv[])
 {
-	int i;
+	int *num1, *num2, *product, len1, len2;
 
-	if (argc != 3)
+	if (argc != 3 ||
+	(check_digits(argv[1]) != 1 || check_digits(argv[2]) != 1))
 	{
-		_puts("Error")
+		printf("Error\n");
 		exit(98);
 	}
-	for (i = 0; argv[1][i] != '\0'; i++)
-	{
-		if (!(argv[1][i] >= 48 && argv[1][i] <= 57))
-		{
-			_puts("Error");
-			exit(98);
-		}
-	}
-	for (i = 0; argv[2][i] != '\0'; i++)
-	{
-		if (!(argv[1][i] >= 48 && argv[1][i] <= 57))
-		{
-			_puts("Error");
-			exit(98);
-		}
-	}
-	print_number(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
+	len1 = _strlen(argv[1]);
+	len2 = _strlen(argv[2]);
+	num1 = malloc(sizeof(int) * len1);
+	num2 = malloc(sizeof(int) * len2);
+	product = malloc(sizeof(int) * (len1 + len2));
+	if (product == NULL)
+		return (0);
+	add_zeros(product, (len1 + len2));
+	multiplication(product, num1, num2, argv[1], argv[2], len1, len2);
+	print_array(product, len1 + len2);
+	printf("\n");
 	return (0);
 }
