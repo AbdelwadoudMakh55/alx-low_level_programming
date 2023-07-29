@@ -57,9 +57,11 @@ void print_array(int *array, int size)
 int check_digits(char *num)
 {
 	int result = 1;
-	int i;
+	int i = 0;
 
-	for (i = 0; num[i] != '\0'; i++)
+	if (num[i] == '-')
+		i++;
+	for (; num[i] != '\0'; i++)
 	{
 		if (!(num[i] >= 48 && num[i] <= 57))
 		{
@@ -132,5 +134,8 @@ int main(int argc, char *argv[])
 	multiplication(product, num1, num2, argv[1], argv[2], len1, len2);
 	print_array(product, len1 + len2);
 	printf("\n");
+	free(product);
+	free(num1);
+	free(num2);
 	return (0);
 }
