@@ -1,0 +1,20 @@
+#include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * pop_listint - Deeletes the head node if a listint_t list.
+ * @head : Pointer to head of listint_t list.
+ * Return: Head nodes's data (int).
+ */
+int pop_listint(listint_t **head)
+{
+	int num;
+	listint_t *ptr;
+
+	ptr = *head;
+	num = (*ptr).n;
+	ptr = (*ptr).next;
+	free(*head);
+	*head = ptr;
+	return (num);
+}
