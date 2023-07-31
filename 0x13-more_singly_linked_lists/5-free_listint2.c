@@ -2,19 +2,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * free_listint - frees a listint_t list.
+ * free_listint2 - frees a listint_t list.
  * @head : Pointer to listint_t list.
  * Return: Void.
  */
-void free_listint(listint_t *head)
+void free_listint2(listint_t **head)
 {
 	listint_t *temp;
 
-	temp = head;
+	temp = *head;
 	while (temp != NULL)
 	{
 		temp = (*temp).next;
-		free(head);
-		head = temp;
+		free(*head);
+		*head = temp;
 	}
+	*head = NULL;
 }
