@@ -55,10 +55,11 @@ int check_01(const char *s)
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int num = 0;
-	int i = 0, len = _strlen(b) - 1;
+	int i = 0, len;
 
 	if (b == NULL)
 		return (0);
+	len = _strlen(b) - 1;
 	for (i = 0; b[i] != '\0'; i++)
 	{
 		if (check_01(b) == 0)
