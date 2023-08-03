@@ -41,7 +41,10 @@ int check_01(const char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] != '0' && s[i] != '1')
+		{
 			result = 0;
+			break;
+		}
 	return (result);
 }
 /**
