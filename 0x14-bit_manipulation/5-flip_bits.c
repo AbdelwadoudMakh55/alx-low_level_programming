@@ -12,6 +12,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int bit_diff = 0;
 	unsigned long int  num1, num2;
 
+	if (n == m)
+		return (0);
 	for (i = 0; i <= 31; i++)
 	{
 		num1 = n >> i;
