@@ -12,12 +12,10 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int bit_diff = 0;
 	unsigned long int diff;
 
-	if (n == m)
-		return (0);
 	diff = n ^ m;
 	for (i = 0; i < 32; i++)
 	{
-		if ((diff & 1) == 1)
+		if ((diff & 1ul) == 1)
 			bit_diff++;
 		diff = diff >> 1;
 	}
