@@ -14,7 +14,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	if (n == m)
 		return (0);
-	for (i = 0; i <= 31; i++)
+	for (i = 31; i >= 0; i--)
 	{
 		num1 = n >> i;
 		num2 = m >> i;
