@@ -10,7 +10,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	int i;
 	unsigned int bit_diff = 0;
-	unsigned long int  num1, num2;
+	unsigned long int num1, num2;
 
 	if (n == m)
 		return (0);
@@ -18,8 +18,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	{
 		num1 = n >> i;
 		num2 = m >> i;
-		if (!((num1 & 1) == (num2 & 1))
-		|| !((num1 & 0) == (num2 & 0)))
+		if ((num1 & 1) != (num2 & 1)
+		|| (num1 & 0) != (num2 & 0))
 			bit_diff++;
 	}
 	return (bit_diff);
