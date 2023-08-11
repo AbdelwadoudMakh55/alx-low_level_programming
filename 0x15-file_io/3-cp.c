@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
 	file_from = open(argv[1], O_RDONLY);
 	if (argv[1] == NULL || file_from == -1)
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		dprintf(1, "Error: Can't read from file %s\n", argv[1]), exit(98);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
 	| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (file_to == -1)
