@@ -21,6 +21,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (pfile == -1)
 		return (0);
 	len = read(pfile, array, letters);
+	if (!len)
+		return (0);
 	len = write(STDOUT_FILENO, array, len);
 	close(pfile);
 	return (len);
