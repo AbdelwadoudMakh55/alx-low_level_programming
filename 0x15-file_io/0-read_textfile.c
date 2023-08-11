@@ -11,18 +11,16 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t len;
+	ssize_t len = 0;
 	int pfile;
-	char array[1000];
+	char array[2000];
 
-	if (filename == NULL)
+	if (filename == NULL || !letters)
 		return (0);
 	pfile = open(filename, O_RDONLY);
 	if (pfile == -1)
 		return (0);
 	len = read(pfile, array, letters);
-	if (!len)
-		return (0);
 	len = write(STDOUT_FILENO, array, len);
 	close(pfile);
 	return (len);
