@@ -35,6 +35,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		current = (*current).next;
 		free(*head);
 		*head = current;
+		(*head).prev = NULL;
 		return (1);
 	}
 	while (i != index && current != NULL)
