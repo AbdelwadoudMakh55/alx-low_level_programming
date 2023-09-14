@@ -28,14 +28,15 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	unsigned int i = 0;
 	dlistint_t *current = *head, *prev_n, *next_n, *tail;
 
-	if (head == NULL || doublylistint_len(*head))
+	if (index > doublylistint_len(*head) - 1)
+		return (-1);
+	if (head == NULL || doublylistint_len(*head) == 0)
 		return (-1);
 	if (index == 0)
 	{
 		current = (*current).next;
 		free(*head);
 		*head = current;
-		(**head).prev = NULL;
 		return (1);
 	}
 	while (i != index && current != NULL)
