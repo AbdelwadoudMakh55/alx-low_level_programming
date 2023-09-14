@@ -28,6 +28,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *new, *current = *h, *next_n;
 	unsigned int i = 0;
 
+	if (*h == NULL && idx != 0)
+		return (NULL);
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 	if (idx == doublylistint_len(*h))
