@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
 /**
- * doublylistint_len - returns the number of elements in a linked dlistint_t list.
+ * doublylistint_len - returns the number of elements in a dlistint_t list.
  * @h : Pointer to head of dlistint_t list.
  * Return: Number of nodes.
  */
@@ -33,7 +33,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	(*new).n = n;
 	if (idx == 0)
-		add_dnodeint(h, n);
+		return (add_dnodeint(h, n));
 	if (idx > doublylistint_len(*h))
 		return (NULL);
 	while ((*current).next != NULL && i < idx - 1)
