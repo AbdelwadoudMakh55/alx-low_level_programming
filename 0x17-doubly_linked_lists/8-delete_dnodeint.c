@@ -26,7 +26,7 @@ size_t doublylistint_len(dlistint_t *h)
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	unsigned int i = 0;
-	dlistint_t *current = *head, *prev_n, *next_n;
+	dlistint_t *current = *head, *prev_n, *next_n, *tail;
 
 	if (head == NULL || doublylistint_len(*head))
 		return (-1);
@@ -47,6 +47,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 	if (i != index)
 		return (-1);
+	if (i == index && current == NULL)
+	{
+		tail = (*prev_n).prev;
+		(*tail).next = NULL;
+		free(prev_n);
+		return (1);
+	}
 	free(current);
 	(*prev_n).next = next_n;
 	(*next_n).prev = prev_n;
