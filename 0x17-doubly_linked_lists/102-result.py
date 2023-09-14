@@ -21,4 +21,7 @@ def find_max_palind():
             max = max_palin[i]
     return max
 
-result = 
+result = find_max_palind()
+file = open("102-result", "w")
+file.write(str(result))
+file.close()
