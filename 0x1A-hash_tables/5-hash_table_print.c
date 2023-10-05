@@ -24,8 +24,6 @@ void hash_table_print(const hash_table_t *ht)
 			else
 				printf("\'%s\': \'%s\'", (*head).key, (*head).value);
 			i_track += 1;
-			if ((*head).next != NULL)
-				printf(", ");
 			head = (*head).next;
 		}
 		i++;
