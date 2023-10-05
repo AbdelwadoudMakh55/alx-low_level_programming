@@ -19,10 +19,13 @@ void hash_table_delete(hash_table_t *ht)
 		while (head != NULL)
 		{
 			tmp = (*head).next;
-			free(head);
+			if ((*head).key != NULL)
+				free((*head).key);
+			if ((*head).value != NULL)
+				free((*head).value);
 			head = tmp;
 		}
-		free(l_list[i]);
+		free(head);
 		i++;
 	}
 	free((*ht).array);
