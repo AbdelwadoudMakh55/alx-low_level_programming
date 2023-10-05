@@ -23,9 +23,9 @@ void hash_table_delete(hash_table_t *ht)
 				free((*head).key);
 			if ((*head).value != NULL)
 				free((*head).value);
+			free(head);
 			head = tmp;
 		}
-		free(head);
 		i++;
 	}
 	free((*ht).array);
