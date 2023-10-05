@@ -11,7 +11,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_pair, **l_list;
 
-	if (ht == NULL || key == NULL || strlen(key) == 0 || value == NULL)
+	if (ht == NULL || key == NULL || value == NULL)
+		return (0);
+	if (strlen(key) == 0)
 		return (0);
 	index = key_index((const unsigned char *)key, (*ht).size);
 	l_list = (*ht).array;
@@ -24,11 +26,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		(*new_pair).next = NULL;
 		l_list[index] = new_pair;
+		return (1);
 	}
-	else
-	{
-		(*new_pair).next = l_list[index];
-		l_list[index] = new_pair;
-	}
+	(*new_pair).next = l_list[index];
+	l_list[index] = new_pair;
 	return (1);
 }
