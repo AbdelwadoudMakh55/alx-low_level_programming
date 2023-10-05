@@ -11,15 +11,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_pair, *l_list;
 
+	if (strlen(key) == 0)
+		return (0);
 	index = key_index((const unsigned char *)key, (*ht).size);
 	l_list = (*ht).array[index];
 	new_pair = malloc(sizeof(hash_node_t));
 	if (new_pair == NULL)
 		return (0);
-	if (l_list == NULL)
-		l_list = new_pair;
 	(*new_pair).key = (char *)key;
 	(*new_pair).value = (char *)value;
-	(*new_pair).next = NULL;
+	if (l_list == NULL)
+	{
+		(*new_pair).next = NULL;
+		l_list = new_pair;
+	}
+	else
+	{
+		(*new_pair).next = l_list;
+		l_list = new_pair;
+	}
 	return (1);
 }
