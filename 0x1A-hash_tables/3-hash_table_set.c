@@ -9,26 +9,28 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new_pair, *l_list;
+	hash_node_t *new_pair, **l_list;
+	char *dup;
 
-	if (strlen(key) == 0)
+	if (ht == NULL || key == NULL || strlen(key) == 0 || value == NULL)
 		return (0);
+	dup = strdup(value);
 	index = key_index((const unsigned char *)key, (*ht).size);
-	l_list = (*ht).array[index];
+	l_list = (*ht).array;
 	new_pair = malloc(sizeof(hash_node_t));
 	if (new_pair == NULL)
 		return (0);
 	(*new_pair).key = (char *)key;
-	(*new_pair).value = strdup(value);
-	if (l_list == NULL)
+	(*new_pair).value = dup;
+	if (l_list[index] == NULL)
 	{
 		(*new_pair).next = NULL;
-		l_list = new_pair;
+		l_list[index] = new_pair;
 	}
 	else
 	{
-		(*new_pair).next = l_list;
-		l_list = new_pair;
+		(*new_pair).next = l_list[index];
+		l_list[index] = new_pair;
 	}
 	return (1);
 }
