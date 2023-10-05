@@ -3,6 +3,7 @@
  * key_index -  a function that gives you the index of a key.
  * @key : The key.
  * @size : Size of the hash_table array.
+ * Return: Index in array.
  */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
