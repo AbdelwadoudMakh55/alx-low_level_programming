@@ -10,6 +10,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_pair, **l_list;
+	char *dupl;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -21,7 +22,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new_pair == NULL)
 		return (0);
 	(*new_pair).key = (char *)key;
-	(*new_pair).value = strdup(value);
+	dupl = strdup(value);
+	(*new_pair).value = dupl;
 	if (l_list[index] == NULL)
 	{
 		(*new_pair).next = NULL;
