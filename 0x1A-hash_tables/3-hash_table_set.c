@@ -26,12 +26,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	(*new_pair).key = (char *)key;
 	dupl = strdup(value);
 	(*new_pair).value = dupl;
-	if (l_list[index] == NULL)
-	{
-		(*new_pair).next = NULL;
-		l_list[index] = new_pair;
-		return (1);
-	}
 	(*new_pair).next = l_list[index];
 	l_list[index] = new_pair;
 	return (1);

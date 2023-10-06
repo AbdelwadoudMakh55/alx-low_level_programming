@@ -1,0 +1,44 @@
+==8381== Memcheck, a memory error detector
+==8381== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8381== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==8381== Command: ./g
+==8381== 
+==8381== Conditional jump or move depends on uninitialised value(s)
+==8381==    at 0x109767: hash_table_print (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381==    by 0x1093C3: main (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381== 
+==8381== Invalid read of size 1
+==8381==    at 0x483EF46: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8381==    by 0x48CBD14: __vfprintf_internal (vfprintf-internal.c:1688)
+==8381==    by 0x48B4D3E: printf (printf.c:33)
+==8381==    by 0x10972C: hash_table_print (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381==    by 0x1093C3: main (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381==  Address 0x4a4a5b0 is 0 bytes inside a block of size 4 free'd
+==8381==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8381==    by 0x109329: main (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381==  Block was alloc'd at
+==8381==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8381==    by 0x48F238E: strdup (strdup.c:42)
+==8381==    by 0x1092E4: main (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381== 
+==8381== Conditional jump or move depends on uninitialised value(s)
+==8381==    at 0x10980A: hash_table_delete (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381==    by 0x1093CF: main (in /home/vagrant/alx-low_level_programming/0x1A-hash_tables/g)
+==8381== 
+{'Betty': 'Cool', 'hetairas': 'Bob Z Chu', 'python': 'awesome', '98': 'Battery Street', 'N': 'queens', 'c': 'fun', '': 'Britton', 'Bob': 'and Kris love asm', 'Asterix': 'Obelix'}
+==8381== 
+==8381== HEAP SUMMARY:
+==8381==     in use at exit: 208 bytes in 17 blocks
+==8381==   total heap usage: 31 allocs, 14 frees, 12,740 bytes allocated
+==8381== 
+==8381== LEAK SUMMARY:
+==8381==    definitely lost: 178 bytes in 13 blocks
+==8381==    indirectly lost: 30 bytes in 4 blocks
+==8381==      possibly lost: 0 bytes in 0 blocks
+==8381==    still reachable: 0 bytes in 0 blocks
+==8381==         suppressed: 0 bytes in 0 blocks
+==8381== Rerun with --leak-check=full to see details of leaked memory
+==8381== 
+==8381== Use --track-origins=yes to see where uninitialised values come from
+==8381== For lists of detected and suppressed errors, rerun with: -s
+==8381== ERROR SUMMARY: 2031 errors from 3 contexts (suppressed: 0 from 0)

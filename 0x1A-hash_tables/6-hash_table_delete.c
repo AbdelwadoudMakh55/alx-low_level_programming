@@ -11,7 +11,18 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (ht == NULL)
 		return;
+	/*if ((*ht).size == 0)
+	{
+		free((*ht).array);
+		free(ht);
+		return;
+	}*/
 	l_list = (*ht).array;
+	/*if (l_list == NULL)
+	{
+		free(ht);
+		return;
+	}*/
 	while (i < (*ht).size)
 	{
 		head = l_list[i];
@@ -19,13 +30,15 @@ void hash_table_delete(hash_table_t *ht)
 		while (tmp != NULL)
 		{
 			tmp = (*tmp).next;
-			if ((*head).key != NULL)
-				free((*head).key);
-			if ((*head).value != NULL)
-				free((*head).value);
+			/*if ((*head).key != NULL)
+				free((*head).key);*/
+			/*if ((*head).value != NULL)
+				free((*head).value);*/
+			free(head);
 			head = tmp;
 		}
 		i++;
 	}
+	free(l_list);
 	free(ht);
 }
