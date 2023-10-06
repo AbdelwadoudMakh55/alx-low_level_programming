@@ -29,9 +29,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	(*new_pair).value = dupl_value;
 	(*new_pair).next = l_list[index];
 	l_list[index] = new_pair;
-    	dupl_key[0] = '\0';
-        dupl_value[0] = '\0';
-	free(dupl_key);
-	free(dupl_value);
 	return (1);
 }
