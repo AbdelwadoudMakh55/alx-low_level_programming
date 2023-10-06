@@ -10,7 +10,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_pair, **l_list;
-	char *dupl;
+	char dupl[strlen(key) + 1];
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -24,7 +24,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new_pair == NULL)
 		return (0);
 	(*new_pair).key = (char *)key;
-	dupl = strdup(value);
+	strcpy(dupl, value);
 	(*new_pair).value = dupl;
 	if (l_list[index] == NULL)
 	{
