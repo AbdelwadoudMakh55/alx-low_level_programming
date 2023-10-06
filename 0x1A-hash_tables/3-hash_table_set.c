@@ -18,6 +18,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	index = key_index((const unsigned char *)key, (*ht).size);
 	l_list = (*ht).array;
+	if (l_list == NULL)
+		return (0);
 	new_pair = malloc(sizeof(hash_node_t));
 	if (new_pair == NULL)
 		return (0);
@@ -32,6 +34,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	(*new_pair).next = l_list[index];
 	l_list[index] = new_pair;
-	free(dupl);
 	return (1);
 }
