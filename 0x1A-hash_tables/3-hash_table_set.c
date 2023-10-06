@@ -21,7 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new_pair == NULL)
 		return (0);
 	(*new_pair).key = (char *)key;
-	(*new_pair).value = value;
+	(*new_pair).value = strdup(value);
 	if (l_list[index] == NULL)
 	{
 		(*new_pair).next = NULL;
