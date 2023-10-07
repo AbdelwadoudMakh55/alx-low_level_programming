@@ -1,12 +1,65 @@
 #include "hash_tables.h"
 /**
+ * insert_node : inserts a number into a sorted singly linked list.
+ * @hash_t : Pointer to hash function.
+ * @value : Value of key.
+ * @new : New node.
+ * Return: 1 Success, 0 Failure.
+ */
+int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new_node)
+{
+	shash_node_t *current, *tmp, *head, *tail;
+
+	head = (*hash_t).shead;
+	tail = (*hash_t).stail;
+	current = head;
+	if (current == NULL)
+	{
+		head = new_node;
+		(*head).snext = tail;
+		(*head).sprev = NULL;
+		return (1);
+	}
+	if (strcmp(value, (*current).value) < 0)
+	{
+		head = new_node;
+		(*new_node).snext = current;
+		(*new_node).sprev = NULL;
+		(*current).sprev = head;
+		return (1);
+	}
+	while (current != NULL)
+	{
+		if (strcmp(value, (*current).value) > 0)
+		{
+			tmp = current;
+			current = (*current).snext;
+		}
+		else
+		{
+			(*tmp).snext = new_node;
+			(*new_node).sprev = tmp;
+			(*new_node).snext = current;
+			(*current).sprev = new_node;
+			return (1);
+		}
+	}
+	if (current == NULL)
+	{
+		(*tmp).snext = new_node;
+		(*new_node).snext = NULL;
+		tail = new_node;
+	}
+	return (1);
+}
+/**
  * shash_table_create - creates a hash table.
  * @size : Size of hash table.
  * Return: Pointer to shash_table_t or NULL if it failed.
  */
 shash_table_t *shash_table_create(unsigned long int size)
 {
-	shash_table_t *new_shash_t = NULL;
+	shash_table_t *new_shash_t;
 	shash_node_t **array;
 
 	new_shash_t = malloc(sizeof(shash_table_t));
@@ -28,13 +81,11 @@ shash_table_t *shash_table_create(unsigned long int size)
  * @value :The value to be stored.
  * Return: 1 Success, 0 Failure.
  */
-int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new);
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	shash_node_t *new_pair, **l_list;
 	char *dupl_key, *dupl_value;
-	int i;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -53,8 +104,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	(*new_pair).value = dupl_value;
 	(*new_pair).next = l_list[index];
 	l_list[index] = new_pair;
-	i = insert_node(ht, value, new_pair);
-	return (i);
+	return (insert_node(ht, value, new_pair));
 }
 /**
  * shash_table_get - retrieves a value associated with a key.
@@ -101,8 +151,6 @@ void shash_table_print(const shash_table_t *ht)
 
 	if (ht == NULL)
 		return;
-	if ((*ht).shead == NULL)
-		printf("1");
 	head = (*ht).shead;
 	printf("{");
 	while (head != NULL)
@@ -147,57 +195,4 @@ void shash_table_delete(shash_table_t *ht)
 	free((*ht).shead);
 	free((*ht).stail);
 	free(ht);
-}
-/**
- * insert_node : inserts a number into a sorted singly linked list.
- * @hash_t : Pointer to hash function.
- * @value : Value of key.
- * @new : New node.
- * Return: 1 Success, 0 Failure.
- */
-int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new)
-{
-	shash_node_t *current, *tmp, *head, *tail;
-
-	head = (*hash_t).shead;
-	tail = (*hash_t).stail;
-	current = head;
-	if (current == NULL)
-	{
-		head = new;
-		(*head).snext = tail;
-		(*head).sprev = NULL;
-		return (1);
-	}
-	if (strcmp(value, (*current).value) < 0)
-	{
-		head = new;
-		(*new).snext = current;
-		(*new).sprev = NULL;
-		(*current).sprev = head;
-		return (1);
-	}
-	while (current != NULL)
-	{
-		if (strcmp(value, (*current).value) > 0)
-		{
-			tmp = current;
-			current = (*current).snext;
-		}
-		else
-		{
-			(*tmp).snext = new;
-			(*new).sprev = tmp;
-			(*new).snext = current;
-			(*current).sprev = new;
-			return (1);
-		}
-	}
-	if (current == NULL)
-	{
-		(*tmp).snext = new;
-		(*new).snext = NULL;
-		tail = new;
-	}
-	return (1);
 }
