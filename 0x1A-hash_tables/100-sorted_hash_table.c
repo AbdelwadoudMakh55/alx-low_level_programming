@@ -1,12 +1,12 @@
 #include "hash_tables.h"
 /**
- * insert_node : inserts a number into a sorted singly linked list.
+ * insert_node - inserts a number into a sorted singly linked list.
  * @hash_t : Pointer to hash function.
- * @value : Value of key.
- * @new : New node.
+ * @key : Value of key.
+ * @new_node : New node.
  * Return: 1 Success, 0 Failure.
  */
-int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new_node)
+int insert_node(shash_table_t *hash_t, const char *key, shash_node_t *new_node)
 {
 	shash_node_t *current, *tmp, *head, *tail;
 
@@ -18,19 +18,22 @@ int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new_node
 		head = new_node;
 		(*head).snext = tail;
 		(*head).sprev = NULL;
+		(*hash_t).shead = head;
+		(*hash_t).stail = tail;
 		return (1);
 	}
-	if (strcmp(value, (*current).value) < 0)
+	if (strcmp(key, (*current).key) < 0)
 	{
 		head = new_node;
 		(*new_node).snext = current;
 		(*new_node).sprev = NULL;
 		(*current).sprev = head;
+		(*hash_t).shead = head;
 		return (1);
 	}
 	while (current != NULL)
 	{
-		if (strcmp(value, (*current).value) > 0)
+		if (strcmp(key, (*current).key) > 0)
 		{
 			tmp = current;
 			current = (*current).snext;
@@ -48,7 +51,9 @@ int insert_node(shash_table_t *hash_t, const char *value, shash_node_t *new_node
 	{
 		(*tmp).snext = new_node;
 		(*new_node).snext = NULL;
+		(*new_node).sprev = tmp;
 		tail = new_node;
+		(*hash_t).stail = tail;
 	}
 	return (1);
 }
@@ -104,7 +109,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	(*new_pair).value = dupl_value;
 	(*new_pair).next = l_list[index];
 	l_list[index] = new_pair;
-	return (insert_node(ht, value, new_pair));
+	return (insert_node(ht, key, new_pair));
 }
 /**
  * shash_table_get - retrieves a value associated with a key.
@@ -165,6 +170,31 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 }
 /**
+ * shash_table_print_rev - prints a hash table in reverse.
+ * @ht : The hash table.
+ * Return: Void.
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *tail;
+	int i_track = 0;
+
+	if (ht == NULL)
+		return;
+	tail = (*ht).stail;
+	printf("{");
+	while (tail != NULL)
+	{
+		if (i_track > 0)
+			printf(", \'%s\': \'%s\'", (*tail).key, (*tail).value);
+		else
+			printf("\'%s\': \'%s\'", (*tail).key, (*tail).value);
+		i_track += 1;
+		tail = (*tail).sprev;
+	}
+	printf("}\n");
+}
+/**
  * shash_table_delete - deletes a hash table.
  * @ht : The hash table.
  * Return: Void.
@@ -192,7 +222,5 @@ void shash_table_delete(shash_table_t *ht)
 		i++;
 	}
 	free((*ht).array);
-	free((*ht).shead);
-	free((*ht).stail);
 	free(ht);
 }
