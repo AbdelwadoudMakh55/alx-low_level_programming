@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This is the island perimeter problem """
 
+
 def island_perimeter(grid):
     """ This is the solution function """
     ones_count = 0
@@ -12,10 +13,6 @@ def island_perimeter(grid):
                 ones_count += 1
                 land_track[ones_count] = [i, j]
     if ones_count == 0:
-        return perimeter
-    print(land_track)
-    if len(land_track) == 1:
-        perimeter = 4
         return perimeter
     for key in land_track.keys():
         neighbors = 0
