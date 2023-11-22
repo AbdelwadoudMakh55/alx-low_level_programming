@@ -4,3 +4,4 @@ main.c
 *.o
 school
 5-main.py
+__pycache__
