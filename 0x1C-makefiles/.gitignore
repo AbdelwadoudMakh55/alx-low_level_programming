@@ -1,3 +1,5 @@
 m.h
 school.c
 main.c
+*.o
+school
