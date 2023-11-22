@@ -3,8 +3,5 @@ SRC = *.c
 
 all: school
 
-school: main.o school.o
-	$(CC) main.o school.o -o school
-
-main.o school.o: $(SRC)
-	$(CC) -c $(SRC)
+school:
+	$(CC) *.c -o school
