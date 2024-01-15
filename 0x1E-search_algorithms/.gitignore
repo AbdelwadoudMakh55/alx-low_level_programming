@@ -1,0 +1,5 @@
+# Ignore main files and executables
+
+*main.c
+0-linear
+1-binary
