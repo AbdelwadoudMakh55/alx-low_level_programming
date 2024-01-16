@@ -15,7 +15,7 @@ int jump_search(int *array, size_t size, int value)
 		return (-1);
 	for (; i < size; i += j_block)
 	{
-		if (array[i] >= value)
+		if (array[i] >= value && i > 0)
 		{
 			printf("Value found between indexes [%lu] and [%lu]\n", i - j_block, i);
 			for (j = i - j_block; j < size; j++)
